@@ -1,0 +1,17 @@
+@using PlaylistManager.Models;
+
+<h1>Playlists</h1>
+
+@if (@Model.Count == 0)
+{
+    <h3>No playlists have been created.</h3>
+}
+
+<ul>
+    @foreach (Playlist playlist in Model)
+    {
+        <li>@playlist.Name</li>
+    }
+</ul>
+
+<p>@Html.ActionLink("Add new playlist", "Create")</p>
