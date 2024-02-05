@@ -1,0 +1,17 @@
+@model PlaylistManager.Models.Song
+
+<h2>Add Playlist</h2>
+
+<h4>Add to a Playlist</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.SongId)
+
+    @Html.Label("Select a playlist")
+    @Html.DropDownList("PlaylistId")
+
+    <input type="submit" value="Add" />
+}
+
+<p>@Html.ActionLink("Back to Songs", "Index")</p>
