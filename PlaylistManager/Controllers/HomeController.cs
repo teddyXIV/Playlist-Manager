@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Project.Controllers
+namespace PlaylistManager.Controllers
 {
     public class HomeController : Controller
     {
