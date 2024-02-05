@@ -10,7 +10,7 @@
 <ul>
     @foreach (Song song in Model)
     {
-        <li>@song.Name by @song.Artist</li>
+        <li>@Html.ActionLink($"{song.Name}", "Details", new { id = song.SongId }) | @song.Artist</li>
     }
 </ul>
 

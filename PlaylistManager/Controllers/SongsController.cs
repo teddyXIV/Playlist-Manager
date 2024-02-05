@@ -16,6 +16,14 @@ namespace PlaylistManager.Controllers
         {
             return View(_db.Songs.ToList());
         }
+        public ActionResult Details(int id)
+        {
+            Song thisSong = _db.Songs
+                .Include(song => song.JoinEntities)
+                .ThenInclude(join => join.Playlist)
+                .FirstOrDefault(song => song.SongId == id);
+            return View(thisSong);
+        }
 
         public ActionResult Create()
         {

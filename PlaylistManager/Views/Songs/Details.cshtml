@@ -1,0 +1,25 @@
+@using PlaylistManager.Models
+@model PlaylistManager.Models.Song
+
+<h2>Song Details</h2>
+<hr />
+
+<h3>Song: @Model.Name</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+    <p>This song doesnt belong to a playlist</p>
+
+}
+else
+{
+    <h4>Playlists the song belongs to:</h4>
+
+    <ul>
+        @foreach (PlaylistSong join in Model.JoinEntities)
+        {
+            <li>@join.Playlist.Name</li>
+        }
+    </ul>
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
