@@ -1,0 +1,22 @@
+@model PlaylistManager.Models.Playlist;
+@using PlaylistManager.Models;
+
+<h2>Playlist Details:</h2>
+<h3>Name: @Model.Name</h3>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+    <p>This playlist does not contain any songs</p>
+}
+else
+{
+    <h4>Songs in the playlist:</h4>
+    <ul>
+        @foreach (PlaylistSong join in Model.JoinEntities)
+        {
+            <li>@join.Song.Name</li>
+        }
+    </ul>
+}
+
+<p>@Html.ActionLink("Add a song to this playlist", "AddSong", new { id = Model.PlaylistId })</p>

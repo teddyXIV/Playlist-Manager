@@ -1,0 +1,16 @@
+@model PlaylistManager.Models.Song
+
+<h4>Add a new Song</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @required = "required" })
+    <br />
+    @Html.LabelFor(model => model.Artist)
+    @Html.TextBoxFor(model => model.Artist, new { @required = "required" })
+    <br />
+    <input type="submit" value="Add new Song" />
+}
+<br />
+<p>@Html.ActionLink("Back to List", "Index")</p>

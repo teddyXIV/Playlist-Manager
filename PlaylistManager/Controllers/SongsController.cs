@@ -16,5 +16,17 @@ namespace PlaylistManager.Controllers
         {
             return View(_db.Songs.ToList());
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Song song)
+        {
+            _db.Songs.Add(song);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

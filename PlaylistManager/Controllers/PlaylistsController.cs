@@ -27,12 +27,37 @@ public class PlaylistsController : Controller
     [HttpPost]
     public ActionResult Create(Playlist playlist)
     {
-        // if (playlist.PlaylistId == 0)
-        // {
-        //     return RedirectToAction("Create");
-        // }
         _db.Playlists.Add(playlist);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+        Playlist playlist = _db.Playlists
+            .Include(playlist => playlist.JoinEntities)
+            .ThenInclude(join => join.Song)
+            .FirstOrDefault(playlist => playlist.PlaylistId == id);
+
+        return View(playlist);
+    }
+
+    public ActionResult AddSong(int id)
+    {
+        Playlist playlist = _db.Playlists.FirstOrDefault(playlist => playlist.PlaylistId == id);
+        ViewBag.SongId = new SelectList(_db.Songs, "SongId", "Name");
+        return View(playlist);
+    }
+
+    [HttpPost]
+    public ActionResult AddSong(Playlist playlist, int songId)
+    {
+        PlaylistSong? joinEntity = _db.PlaylistSongs.FirstOrDefault(join => (join.SongId == songId && join.PlaylistId == playlist.PlaylistId));
+        if (joinEntity == null && songId != 0)
+        {
+            _db.PlaylistSongs.Add(new PlaylistSong() { SongId = songId, PlaylistId = playlist.PlaylistId });
+            _db.SaveChanges();
+        }
+        return RedirectToAction("Details", new { id = playlist.PlaylistId });
     }
 }

@@ -10,7 +10,7 @@
 <ul>
     @foreach (Playlist playlist in Model)
     {
-        <li>@playlist.Name</li>
+        <li>@Html.ActionLink($"{playlist.Name}", "Details", new { id = playlist.PlaylistId })</li>
     }
 </ul>
 
