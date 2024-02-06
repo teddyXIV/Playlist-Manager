@@ -13,12 +13,16 @@
     <div class="search-bar">
         @using (Html.BeginForm("Index", "Search", FormMethod.Get))
         {
-            @Html.Label("searchType", "Search for:")
-            @Html.RadioButton("searchType", "playlists", true, new { id = "playlistRadio" }) <label for="playlisttRadio">Playlists</label>
-            @Html.RadioButton("searchType", "songs", new { id = "songRadio" }) <label for="songRadio">Songs</label>
-            @Html.TextBox("searchTerm")
+            <div class=radio-select>
+                @Html.Label("searchType", "Search for:")
+                @Html.RadioButton("searchType", "playlists", true, new { id = "playlistRadio" }) <label for="playlisttRadio">Playlists</label>
+                @Html.RadioButton("searchType", "songs", new { id = "songRadio" }) <label for="songRadio">Songs</label>
+            </div>
+            <div class=search-input>
+                @Html.TextBox("searchTerm")
 
-            <input class="button" type="submit" value="Search">
+                <input class="button" type="submit" value="Search">
+            </div>
         }
     </div>
 </div>

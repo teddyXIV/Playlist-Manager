@@ -37,7 +37,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #6141AC;
+    color: #F1F6E1;
 }
 
 .header {
@@ -46,6 +46,16 @@ a {
     background-color: #041F1E;
     color: #6141AC;
     /* background-color: #646E78; */
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #646E78;
+    color: #041F1E;
+    text-align: center;
 }
 
 .logo {
@@ -75,14 +85,18 @@ a {
     justify-content: center;
 }
 
-div#footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #6141AC;
-    color: white;
-    text-align: center;
+.search-bar form {
+    background-color: #041F1E;
+}
+
+.radio-select {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-input {
+    display: flex;
+    flex-direction: row;
 }
 
 .button {
@@ -109,4 +123,42 @@ h6 {
 label {
     color: #6141AC;
     font-weight: bold;
+}
+
+li {
+    color: #6141AC;
+}
+
+form {
+    background-color: #F1F6E1;
+    padding: 20px;
+    border-radius: 4px;
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    margin: auto;
+    width: 25%;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pl-details {
+    color: #b4a8cf;
+    font-weight: bold;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: row;
+}
+
+.song-list form {
+    background-color: #041F1E;
+    padding: 0;
+    width: 60px;
 }
