@@ -1,0 +1,41 @@
+@model PlaylistManager.Models.Genre;
+@using PlaylistManager.Models;
+@using System.Collections.Generic;
+
+<h2>Genre Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.Songs.Count == 0)
+{
+    <p>This genre does not contain have any songs</p>
+}
+else
+{
+    <h4>@Model.Name songs:</h4>
+    <ul>
+        @foreach (Song song in Model.Songs)
+        {
+            string playlists = "";
+            @if (song.JoinEntities.Count == 0)
+            {
+                playlists = "This song is not in any playlists.";
+            }
+            else
+            {
+                List<string> playlistList = new List<string>();
+                @foreach (PlaylistSong join in song.JoinEntities)
+                {
+                    playlistList.Add(join.Playlist.Name);
+                }
+                playlists = String.Join(", ", playlistList);
+            }
+            <li>@song.Name by @song.Artist | Playlists: @playlists</li>
+        }
+    </ul>
+}
+
+
+<p>@Html.ActionLink("Back to genres", "Index")</p>
+<p>@Html.ActionLink("Edit Genre", "Edit", new { id = Model.GenreId })</p>
+<p>@Html.ActionLink("Delete Genre", "Delete", new { id = Model.GenreId })</p>

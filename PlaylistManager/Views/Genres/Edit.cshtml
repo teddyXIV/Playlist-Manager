@@ -1,0 +1,16 @@
+@model PlaylistManager.Models.Genre
+
+<h2>Edit @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.GenreId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <br />
+    <input type="submit" value="Update" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")
+<p>

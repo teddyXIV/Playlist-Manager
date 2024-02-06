@@ -27,6 +27,7 @@ namespace PlaylistManager.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.GenreId = new SelectList(_db.Genres, "GenreId", "Name");
             return View();
         }
         [HttpPost]

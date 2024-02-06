@@ -40,6 +40,10 @@ a {
     color: #F1F6E1;
 }
 
+img {
+    width: 300px;
+}
+
 .header {
     display: flex;
     flex-direction: row;

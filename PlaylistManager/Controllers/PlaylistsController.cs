@@ -31,6 +31,10 @@ public class PlaylistsController : Controller
         {
             return View();
         }
+        if (playlist.ImageUrl == null)
+        {
+            playlist.ImageUrl = "https://yt3.googleusercontent.com/ytc/AIf8zZT1nbQ7re2-12jCsO1JNGaYWTW1nrtSwmGoMobA1w=s900-c-k-c0x00ffffff-no-rj";
+        }
         _db.Playlists.Add(playlist);
         _db.SaveChanges();
         return RedirectToAction("Index");

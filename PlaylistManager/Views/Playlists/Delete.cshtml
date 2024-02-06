@@ -1,7 +1,7 @@
 @model PlaylistManager.Models.Playlist
 <h2>Are you sure you want to delete this playlist?</h2>
 
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+<h3> Playlist: @Model.Name</h3>
 @using (Html.BeginForm())
 {
     <input class="button" type="submit" value="Delete" />

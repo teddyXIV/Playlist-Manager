@@ -13,6 +13,9 @@
     @Html.LabelFor(model => model.Artist)
     @Html.TextBoxFor(model => model.Artist)
     <br />
+    @Html.LabelFor(model => model.Genre)
+    @Html.DropDownList("GenreId")
+
     <input class="button" type="submit" value="Add new Song" />
 }
 <br />
