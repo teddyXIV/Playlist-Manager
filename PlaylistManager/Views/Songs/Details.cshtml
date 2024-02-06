@@ -9,7 +9,6 @@
 @if (@Model.JoinEntities.Count == 0)
 {
     <p>This song doesnt belong to a playlist</p>
-
 }
 else
 {
@@ -22,6 +21,6 @@ else
         }
     </ul>
 }
-
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.SongId })</p>
 <p>@Html.ActionLink("Add this song to a playlist", "AddPlaylist", new { id = Model.SongId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>

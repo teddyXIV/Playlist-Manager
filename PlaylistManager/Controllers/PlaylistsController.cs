@@ -27,6 +27,10 @@ public class PlaylistsController : Controller
     [HttpPost]
     public ActionResult Create(Playlist playlist)
     {
+        if (playlist.Name == null)
+        {
+            return View();
+        }
         _db.Playlists.Add(playlist);
         _db.SaveChanges();
         return RedirectToAction("Index");
@@ -40,6 +44,20 @@ public class PlaylistsController : Controller
             .FirstOrDefault(playlist => playlist.PlaylistId == id);
 
         return View(playlist);
+    }
+
+    public ActionResult Edit(int id)
+    {
+        Playlist playlist = _db.Playlists.FirstOrDefault(playlist => playlist.PlaylistId == id);
+        return View(playlist);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Playlist playlist)
+    {
+        _db.Playlists.Update(playlist);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
     }
 
     public ActionResult AddSong(int id)

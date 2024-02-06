@@ -32,7 +32,25 @@ namespace PlaylistManager.Controllers
         [HttpPost]
         public ActionResult Create(Song song)
         {
+            if (song.Name == null || song.Artist == null)
+            {
+                return View();
+            }
             _db.Songs.Add(song);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Song song = _db.Songs.FirstOrDefault(song => song.SongId == id);
+            return View(song);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Song song)
+        {
+            _db.Songs.Update(song);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

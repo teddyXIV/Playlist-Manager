@@ -18,5 +18,6 @@ else
         }
     </ul>
 }
-
+<p>@Html.ActionLink("Edit playlist", "Edit", new { id = Model.PlaylistId })</p>
 <p>@Html.ActionLink("Add a song to this playlist", "AddSong", new { id = Model.PlaylistId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -1,0 +1,18 @@
+@model PlaylistManager.Models.Song
+
+<h4>Edit Song</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.SongId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    <br />
+    @Html.LabelFor(model => model.Artist)
+    @Html.EditorFor(model => model.Artist)
+    <br />
+    <input type="submit" value="Update" />
+}
+<br />
+<p>@Html.ActionLink("Back to List", "Index")</p>
