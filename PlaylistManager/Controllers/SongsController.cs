@@ -73,5 +73,18 @@ namespace PlaylistManager.Controllers
             }
             return RedirectToAction("Details", new { id = song.SongId });
         }
+        public ActionResult Delete(int id)
+        {
+            Song thisSong = _db.Songs.FirstOrDefault(song => song.SongId == id);
+            return View(thisSong);
+        }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Song thisSong = _db.Songs.FirstOrDefault(song => song.SongId == id);
+            _db.Songs.Remove(thisSong);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

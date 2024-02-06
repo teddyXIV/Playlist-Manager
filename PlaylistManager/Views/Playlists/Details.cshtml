@@ -15,9 +15,15 @@ else
         @foreach (PlaylistSong join in Model.JoinEntities)
         {
             <li>@join.Song.Name</li>
+            @using (Html.BeginForm("DeleteJoin", "Playlists"))
+            {
+                @Html.Hidden("joinId", @join.PlaylistSongId)
+                <input class="button" type="submit" value="Delete" />
+            }
         }
     </ul>
 }
 <p>@Html.ActionLink("Edit playlist", "Edit", new { id = Model.PlaylistId })</p>
 <p>@Html.ActionLink("Add a song to this playlist", "AddSong", new { id = Model.PlaylistId })</p>
+<p>@Html.ActionLink("Delete playlist", "Delete", new { id = Model.PlaylistId })</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

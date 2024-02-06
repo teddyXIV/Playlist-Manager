@@ -7,11 +7,35 @@
     <h3>No playlists have been created.</h3>
 }
 
-<ul>
+<div class="playlist-container">
     @foreach (Playlist playlist in Model)
     {
-        <li>@Html.ActionLink($"{playlist.Name}", "Details", new { id = playlist.PlaylistId })</li>
+        <div class="card-container">
+            <a href="/Playlists/Details/@playlist.PlaylistId">
+                <div class="card" style="width: 18rem;">
+
+                    <img src=@playlist.ImageUrl class="card-img-top" alt="Playlist image">
+                    <div class="card-body">
+                        <h5 class="card-title">@playlist.Name</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @* <li>@Html.ActionLink($"{playlist.Name}", "Details", new { id = playlist.PlaylistId })</li>
+    <img src=@playlist.ImageUrl alt="Playlist image" width="300px" /> *@
     }
-</ul>
+</div>
+<br />
+<br />
 
 <p>@Html.ActionLink("Add new playlist", "Create")</p>
+
+@*
+<a asp-controller="Playlists" asp-action="Details" asp-route-id="@playlist.PlaylistId">
+<div class="card" style="width: 18rem;">
+<img src=@playlist.ImageUrl class="card-img-top" alt="Playlist image">
+<div class="card-body">
+<h5 class="card-title">@playlist.Name</h5>
+</div>
+</div>
+</a> *@

@@ -20,7 +20,10 @@ else
             <li>@join.Playlist.Name</li>
         }
     </ul>
+
 }
+
+<p>@Html.ActionLink("Delete", "Delete", new { id = Model.SongId })</p>
 <p>@Html.ActionLink("Edit", "Edit", new { id = Model.SongId })</p>
 <p>@Html.ActionLink("Add this song to a playlist", "AddPlaylist", new { id = Model.SongId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>

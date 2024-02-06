@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio&display=swap');
+
+body {
+    /* background-color: #DBB1BC; */
+    background-color: #041F1E;
+    font-family: 'Antonio', sans-serif;
+    text-align: center;
+}
+
+.playlist-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    background-color: #F1F6E1;
+}
+
+.card-container {
+    margin: auto;
+    width: 250px;
+}
+
+.card-container:hover {
+    transform: scale(1.02)
+}
+
+.playlist-container img {
+    width: 100%;
+    height: 200px;
+
+}
+
+a {
+    text-decoration: none;
+    color: #6141AC;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: #041F1E;
+    color: #6141AC;
+    /* background-color: #646E78; */
+}
+
+.logo {
+    width: 25%;
+}
+
+.logo img {
+    width: 175px;
+    float: left;
+}
+
+.logo img:hover {
+    transform: scale(1.02)
+}
+
+.title {
+    width: 50%;
+    text-align: center;
+
+}
+
+.search-bar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #6141AC;
+    color: white;
+    text-align: center;
+}
+
+.button {
+    background-color: #6141AC;
+    color: #F1F6E1;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #F1F6E1;
+    color: #6141AC;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #6141AC;
+    font-weight: bold;
+}
+
+label {
+    color: #6141AC;
+    font-weight: bold;
+}

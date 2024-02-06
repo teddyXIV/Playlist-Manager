@@ -60,6 +60,21 @@ public class PlaylistsController : Controller
         return RedirectToAction("Index");
     }
 
+    public ActionResult Delete(int id)
+    {
+        Playlist playlist = _db.Playlists.FirstOrDefault(p => p.PlaylistId == id);
+        return View(playlist);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Playlist playlist = _db.Playlists.FirstOrDefault(p => p.PlaylistId == id);
+        _db.Playlists.Remove(playlist);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
     public ActionResult AddSong(int id)
     {
         Playlist playlist = _db.Playlists.FirstOrDefault(playlist => playlist.PlaylistId == id);
@@ -77,5 +92,14 @@ public class PlaylistsController : Controller
             _db.SaveChanges();
         }
         return RedirectToAction("Details", new { id = playlist.PlaylistId });
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+        PlaylistSong joinEntry = _db.PlaylistSongs.FirstOrDefault(entry => entry.PlaylistSongId == joinId);
+        _db.PlaylistSongs.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
     }
 }

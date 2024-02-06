@@ -9,7 +9,10 @@
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
 
-    <input type="submit" value="Add new playlist" />
+    @Html.LabelFor(model => model.ImageUrl)
+    @Html.TextBoxFor(model => model.ImageUrl)
+
+    <input class="button" type="submit" value="Add new playlist" />
 }
 
 <p>@Html.ActionLink("Show all playlists", "Index")</p>

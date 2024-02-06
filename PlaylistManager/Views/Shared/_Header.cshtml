@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="logo">
+        <a href="/">
+            <img src="~/images/playlistify.png" alt="Playlistify logo">
+        </a>
+    </div>
+
+    <div class="title">
+        <h1>Playlistify</h1>
+        <h4>playlist management experience</h4>
+    </div>
+
+    <div class="search-bar">
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+        {
+            @Html.Label("searchType", "Search for:")
+            @Html.RadioButton("searchType", "playlists", true, new { id = "playlistRadio" }) <label for="playlisttRadio">Playlists</label>
+            @Html.RadioButton("searchType", "songs", new { id = "songRadio" }) <label for="songRadio">Songs</label>
+            @Html.TextBox("searchTerm")
+
+            <input class="button" type="submit" value="Search">
+        }
+    </div>
+</div>
+<hr />
