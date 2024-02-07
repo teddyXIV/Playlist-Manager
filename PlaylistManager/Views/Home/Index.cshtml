@@ -1,5 +1,54 @@
-<h3>Welcome to your state-of-the-art playlist manager</h3>
+@using PlaylistManager.Models;
 
-<p>@Html.ActionLink("See all Playlists", "Index", "Playlists")</p>
+<h3>Welcome to your state-of-the-art playlist manager</h3>
+<p class="pl-details">Here you can manage your playlists, songs and genres.</p>
+
+<hr />
+
+<h4>Playlists</h4>
+
+@if (Model["playlists"].Length == 0)
+{
+    <p>You don't have any playlists yet. Want to Create one?</p>
+}
+else
+{
+    <ul>
+        @foreach (Playlist play in Model["playlists"])
+        {
+         <div class="card-container">
+            <a href="/Playlists/Details/@play.PlaylistId">
+                <div class="card" style="width: 18rem;">
+
+                    <img src=@play.ImageUrl class="card-img-top" alt="Playlist image">
+                    <div class="card-body">
+                        <h5 class="card-title">@play.Name</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        }
+    </ul>
+}
+
+<hr />
+<h1 class="pl-details">Songs</h1>
+
+@if (Model["songs"].Length == 0)
+{
+    <p>You don't have any songs yet. Want to Add one?</p>
+}
+else
+{
+
+    @foreach (Song song in Model["songs"])
+    {
+        <h3>@song.Name</h3>
+    }
+
+}
+
+<p>@Html.ActionLink("Manage Songs", "Index", "Songs")</p>
+<p>@Html.ActionLink("Manage Playlists", "Index", "Playlists")</p>
 <p>@Html.ActionLink("See all Songs", "Index", "Songs")</p>
-<p>@Html.ActionLink("See all Genres", "Index", "Genres")</p>
+<p>@Html.ActionLink("Manage Genres", "Index", "Genres")</p>

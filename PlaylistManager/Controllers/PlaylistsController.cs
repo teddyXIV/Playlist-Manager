@@ -106,4 +106,14 @@ public class PlaylistsController : Controller
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+
+    [HttpPost]
+    public ActionResult Play(int id)
+    {
+        Playlist playlist = _db.Playlists.FirstOrDefault(playlist => playlist.PlaylistId == id);
+        playlist.Plays += 1;
+        _db.Playlists.Update(playlist);
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = playlist.PlaylistId });
+    }
 }

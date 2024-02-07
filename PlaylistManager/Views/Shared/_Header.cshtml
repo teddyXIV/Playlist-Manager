@@ -15,7 +15,9 @@
         {
             <div class=radio-select>
                 @Html.Label("searchType", "Search for:")
-                @Html.RadioButton("searchType", "playlists", true, new { id = "playlistRadio" }) <label for="playlisttRadio">Playlists</label>
+                <br />
+                @Html.RadioButton("searchType", "playlists", true, new { id = "playlistRadio" }) <label for="playlistRadio">Playlists</label>
+                <br />
                 @Html.RadioButton("searchType", "songs", new { id = "songRadio" }) <label for="songRadio">Songs</label>
             </div>
             <div class=search-input>

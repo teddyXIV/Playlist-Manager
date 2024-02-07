@@ -10,6 +10,14 @@
 }
 else
 {
+    <h3>Plays: @Model.Plays</h3>
+    <div class="play-button">
+    @using (Html.BeginForm("Play", "Playlists"))
+    {
+        @Html.Hidden("id", @Model.PlaylistId)
+        <input class="button" type="submit" value="Play" />
+    }
+    </div>
     <h4>Songs in the playlist:</h4>
     <ul>
         @foreach (PlaylistSong join in Model.JoinEntities)
